@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schema.tauri.app/config/2",
+	"productName": "MG Concept",
+	"version": "1.0.0",
+	"identifier": "com.mgconcept.app",
+	"build": {
+		"frontendDist": "https://mgconcept.in/courses"
+	},
+	"app": {
+		"withGlobalTauri": true,
+		"windows": [{
+			"title": "MG Concept",
+			"width": 1280,
+			"height": 600,
+			"backgroundColor": "#fff",
+			"maximized": true,
+			"center": true,
+			"url": "https://mgconcept.in/courses"
+		}],
+		"security": {
+			"csp": null
+		}
+	},
+	"bundle": {
+		"active": true,
+		"targets": ["nsis"],
+		"icon": [
+			"icons/32x32.png",
+			"icons/128x128.png",
+			"icons/128x128@2x.png",
+			"icons/icon.icns",
+			"icons/icon.ico"
+		],
+		"windows": {
+			"nsis": {
+				"installerIcon": "icons/icon.ico"
+			}
+		}
+	}
+}
