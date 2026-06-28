@@ -6,9 +6,14 @@
 
 A lightweight (~8MB), native Windows wrapper for the MG Concept Website built with Tauri v2 and Bun. Old offical app (Electron version) was not working as of June 2026, it had auto-closing issues & was using so much RAM, this new unofficial client consumes significantly less RAM (~5MB) by utilizing the native Windows Edge WebView2 engine.
 
+
+### 📥 Download Pre-Compiled App
+A ready-to-install Windows installer (.exe) is available directly in the [Releases](https://github.com/nitin2953/mg-concept/releases/latest) section. Please review the release notes for standard instructions on bypassing the Windows SmartScreen warning for unsigned applications. You can use this pre-built version if you prefer not to build the application from source.
+
+
 ---
 
-## **🛠️ Prerequisites & Installation**
+## **🛠️ Prerequisites for building it yourself**
 
 To build this application from source on a fresh Windows PC, you will need three standard development tools:
 
