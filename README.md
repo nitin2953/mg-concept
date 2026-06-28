@@ -23,12 +23,15 @@ If you are unsure about the codebase or want to verify its safety, you are highl
 
 To build this application from source on a fresh Windows PC, you will need three standard development tools:
 
+![Microsoft Visual Studio C++ Build Tools (2022)](https://github.com/user-attachments/assets/2227fffc-9f66-44d6-acf7-18b9dd60f703)
+
+
 1. **Microsoft Visual Studio C++ Build Tools (2022)**
    - **Purpose:** Required to compile the C++ WebView2 rendering engine.
    - **Download:** [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
    - **Setup:** Run the installer and check the box for **"Desktop development with C++"**.
    - **Size:** \~5 MB installer | \~2.5 GB storage footprint.
-2. **Bun (Faster Node.js Alternative)**
+2. **[Bun](https://bun.sh/) (Faster Node.js Alternative)**
    - **Purpose:** Acts as the package manager to download Tauri dependencies and run CLI scripts.
    - **Download:** Open PowerShell and run: `powershell -c "irm bun.sh/install.ps1 | iex"`
    - **Size:** \~50 MB | \~100 MB storage footprint.
@@ -43,6 +46,9 @@ To build this application from source on a fresh Windows PC, you will need three
 You do not need to write or edit any Rust code (`lib.rs`) to build this app. Everything is controlled via a simple JSON configuration.
 
 ### **Step 1: Make a folder & Initialize the Project**
+
+![create-tauri-app in terminal](https://github.com/user-attachments/assets/3ef4c15e-358d-45bc-b6d6-01781632c43d)
+
 
 Open your terminal (cmd) and run the Tauri creation script using Bun:
 this will also create a new folder automatically
