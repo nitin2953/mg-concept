@@ -11,6 +11,12 @@ A lightweight (~8MB), native Windows wrapper for the MG Concept Website built wi
 A ready-to-install Windows installer (.exe) is available directly in the [Releases](https://github.com/nitin2953/mg-concept/releases/latest) section. Please review the release notes for standard instructions on bypassing the Windows SmartScreen warning for unsigned applications. You can use this pre-built version if you prefer not to build the application from source.
 
 
+### 🛡️ Security & Code Audit
+
+This repository is 100% open-source and intentionally kept minimal. Because it is a native wrapper, the core logic is handled by standard JSON configurations rather than complex backend code. 
+
+If you are unsure about the codebase or want to verify its safety, you are highly encouraged to audit the files. You can copy the code into any AI tool (like Gemini, ChatGPT or Claude) to review it. Alternatively, you can click the **GitHub Copilot** icon at the top of this repository page and ask the AI to directly scan the files for any security risks, malware, or malicious scripts.
+
 ---
 
 ## **🛠️ Prerequisites for building it yourself**
