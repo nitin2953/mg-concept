@@ -71,7 +71,7 @@ Because this app strictly loads a live URL, the default starter files are comple
 
 ### **Step 4: Configure the Wrapper (tauri.conf.json)**
 
-Open `src-tauri/tauri.conf.json` and replace its contents with the configuration below.
+Open `src-tauri/tauri.conf.json` [(view file)](src-tauri/tauri.conf.json) and replace its contents with the configuration below.
 
 ```json
 {
