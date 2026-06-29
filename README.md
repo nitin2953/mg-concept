@@ -2,7 +2,7 @@
   <img src="app-icon-ORIGINAL.png" alt="Logo" width="150" />
 </div>
 
-# **[MG Concept](https://mgconcept.in/courses) - Native Windows Client built using [Tauri v2](https://tauri.app/)**
+# [MG Concept](https://mgconcept.in/courses) - Native Windows Client built using [Tauri v2](https://tauri.app/)
 
 A lightweight (~8MB), native Windows wrapper for the MG Concept Website built with Tauri v2 and Bun. Old offical app (Electron version) was not working as of June 2026, it had auto-closing issues & was using so much RAM, this new unofficial client consumes significantly less RAM (~5MB) by utilizing the native Windows Edge WebView2 engine.
 
@@ -19,12 +19,11 @@ If you are unsure about the codebase or want to verify its safety, you are highl
 
 ---
 
-## **🛠️ Prerequisites for building it yourself**
+## 🛠️ Prerequisites for building it yourself
 
 To build this application from source on a fresh Windows PC, you will need three standard development tools:
 
 ![Microsoft Visual Studio C++ Build Tools (2022)](https://github.com/user-attachments/assets/2227fffc-9f66-44d6-acf7-18b9dd60f703)
-
 
 1. **Microsoft Visual Studio C++ Build Tools (2022)**
    - **Purpose:** Required to compile the C++ WebView2 rendering engine.
@@ -41,14 +40,13 @@ To build this application from source on a fresh Windows PC, you will need three
    - **Setup:** Download `rustup-init.exe` and press `1` for the default installation.
    - **Size:** \~10 MB installer | \~1.5 GB storage footprint.
 
-## **🚀 How to Build the App (From Scratch)**
+## 🚀 How to Build the App (From Scratch)
 
 You do not need to write or edit any Rust code (`lib.rs`) to build this app. Everything is controlled via a simple JSON configuration.
 
-### **Step 1: Make a folder & Initialize the Project**
+### Step 1: Make a folder & Initialize the Project
 
 ![create-tauri-app in terminal](https://github.com/user-attachments/assets/3ef4c15e-358d-45bc-b6d6-01781632c43d)
-
 
 Open your terminal (cmd) and run the Tauri creation script using Bun:
 this will also create a new folder automatically
@@ -60,28 +58,29 @@ bunx create-tauri-app@latest
 Follow the interactive prompts exactly like this:
 
 1. **Project name:** `mg-concept`
-2. **Identifier:** `com.mgconcept.app`
+2. **Identifier:** `com.mg-concept.app`
 3. **Choose which language to use for your frontend:** `JavaScript / TypeScript`
 4. **Choose your package manager:** `bun`
 5. **Choose your UI template:** `Vanilla`
+6. **Choose your UI flavor:** `JavaScript`
 
-### **Step 2: Download Dependencies**
+### Step 2: Download Dependencies
 
-Navigate into your new project folder and download the required libraries. *(If you skip this, the build command will fail\!)*
+Navigate into your new project folder and download the required libraries. **(⚠️ If you skip this, the build command will fail!)**
 
 ```sh
 cd mg-concept
 bun install
 ```
 
-### **Step 3: Clean up the Bloat**
+### Step 3: Clean up the Bloat
 
 Because this app strictly loads a live URL, the default starter files are completely unnecessary.
 
-- Delete all files inside `src` folder from your project directory.
+- Delete all files/folders inside `src` folder from your project directory.
 - This keeps the repository clean and prevents unused HTML/JS files from being packaged.
 
-### **Step 4: Configure the Wrapper (tauri.conf.json)**
+### Step 4: Configure the Wrapper (tauri.conf.json)
 
 Open `src-tauri/tauri.conf.json` [(view file)](src-tauri/tauri.conf.json) and replace its contents with the configuration below.
 
@@ -138,22 +137,21 @@ Open `src-tauri/tauri.conf.json` [(view file)](src-tauri/tauri.conf.json) and re
 - `decorations: true` : Keeps the standard Windows title bar (with minimize, maximize, and close buttons) visible.
 - `maximized: true` : The app will open filling the entire screen by default.
 - `url` : Bypasses local files and natively loads the secure coaching website.
-- —--
 - `targets: ["nsis"]` : **Forces Tauri to ONLY build the lightweight NSIS setup installer**, If you want the MSI builder then set it to `"targets": "all",` .
-- `icon` & `installerIcon` : Binds your custom extracted `.png` logos to both the executable and the NSIS setup wizard.
+- `icon` & `installerIcon` : Binds your app icons/logos to both the executable and the NSIS setup wizard.
 
-### **Step 5: Generate App Icons**
+### Step 5: Generate App Icons *(Optional)*
 
-1. Place your high-quality logo image (e.g., `app-icon-ORIGINAL.png`) directly in the root `mg-concept` folder.
+1. Place your high-quality icon/logo image (e.g., `app-icon-ORIGINAL.png`, preferably square) directly in the root `mg-concept` folder.
 2. Run the automated icon generator:
 
 ```sh
-bunx tauri icon app-icon-ORIGINAL.png
+bunx tauri icon "app-icon-ORIGINAL.png"
 ```
 
 *Tauri will automatically generate all necessary `.ico`, `.icns`, and `.png` sizes and place them in the `src-tauri/icons` folder.*
 
-### **Step 6: Compile the Installer**
+### Step 6: Compile the Installer
 
 Generate the final, production-ready Windows installer:
 
@@ -166,4 +164,6 @@ bunx tauri build
 - **First Build:** Because the compiler must build the native Rust and C++ WebView2 engines from scratch, the very first build will take approximately **10 to 12 minutes**. Do not close the terminal; let it process.
 - **Subsequent Builds:** Once the initial cache is generated, any future builds or updates will be extremely fast, taking only **~1 to 2 minutes**.
 
-Once the compilation finishes, your installer will be located at: `src-tauri/target/release/bundle/nsis/MG Concept_1.0.0_x64-setup.exe`
+✅ Once the compilation finishes, Tauri generates two ready-to-use files:
+- **The Full Installer:** `src-tauri/target/release/bundle/nsis/MG Concept_1.0.0_x64-setup.exe`
+- **The Standalone EXE App (for quick testing without installing):** `src-tauri/target/release/mg-concept.exe`
